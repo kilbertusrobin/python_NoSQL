@@ -1,2 +1,4 @@
-Flask==2.0.1
-py2neo==2021.2.3
+﻿flask==2.3.3
+py2neo==2021.2.4
+python-dotenv==1.0.0
+Flask-Cors==4.0.0
