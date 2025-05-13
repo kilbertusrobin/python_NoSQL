@@ -1,0 +1,6 @@
+#!/bin/bash
+echo "Installation des dépendances..."
+pip install -r requirements.txt
+
+echo "Démarrage du serveur Flask..."
+python app.py
