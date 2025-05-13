@@ -1,0 +1,656 @@
+{
+	"info": {
+		"_postman_id": "b0c9d8e7-f6e5-4d3c-a2b1-9c0d8e7f6e5d",
+		"name": "Neo4j Flask API Collection",
+		"description": "Collection de requêtes pour tester l'API Neo4j avec Flask pour un réseau social",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Utilisateurs",
+			"item": [
+				{
+					"name": "Liste des utilisateurs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users"
+							]
+						},
+						"description": "Récupérer la liste de tous les utilisateurs"
+					},
+					"response": []
+				},
+				{
+					"name": "Créer un utilisateur",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Jean Dupont\",\n    \"email\": \"jean.dupont@example.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users"
+							]
+						},
+						"description": "Créer un nouvel utilisateur"
+					},
+					"response": []
+				},
+				{
+					"name": "Récupérer un utilisateur",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/{{user_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}"
+							]
+						},
+						"description": "Récupérer un utilisateur par son ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Mettre à jour un utilisateur",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Jean Dupont Modifié\",\n    \"email\": \"jean.modifie@example.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/{{user_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}"
+							]
+						},
+						"description": "Mettre à jour un utilisateur existant"
+					},
+					"response": []
+				},
+				{
+					"name": "Supprimer un utilisateur",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/{{user_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}"
+							]
+						},
+						"description": "Supprimer un utilisateur existant"
+					},
+					"response": []
+				},
+				{
+					"name": "Liste des amis",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/{{user_id}}/friends",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}",
+								"friends"
+							]
+						},
+						"description": "Récupérer la liste des amis d'un utilisateur"
+					},
+					"response": []
+				},
+				{
+					"name": "Ajouter un ami",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"friend_id\": \"{{friend_id}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/{{user_id}}/friends",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}",
+								"friends"
+							]
+						},
+						"description": "Ajouter un ami à un utilisateur"
+					},
+					"response": []
+				},
+				{
+					"name": "Supprimer un ami",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/{{user_id}}/friends/{{friend_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}",
+								"friends",
+								"{{friend_id}}"
+							]
+						},
+						"description": "Supprimer un ami d'un utilisateur"
+					},
+					"response": []
+				},
+				{
+					"name": "Vérifier une amitié",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/{{user_id}}/friends/{{friend_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}",
+								"friends",
+								"{{friend_id}}"
+							]
+						},
+						"description": "Vérifier si deux utilisateurs sont amis"
+					},
+					"response": []
+				},
+				{
+					"name": "Amis en commun",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/{{user_id}}/mutual-friends/{{other_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}",
+								"mutual-friends",
+								"{{other_id}}"
+							]
+						},
+						"description": "Récupérer les amis en commun entre deux utilisateurs"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Posts",
+			"item": [
+				{
+					"name": "Liste des posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/posts",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"posts"
+							]
+						},
+						"description": "Récupérer la liste de tous les posts"
+					},
+					"response": []
+				},
+				{
+					"name": "Récupérer un post",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/posts/{{post_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"posts",
+								"{{post_id}}"
+							]
+						},
+						"description": "Récupérer un post par son ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Mettre à jour un post",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Nouveau titre\",\n    \"content\": \"Nouveau contenu du post\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/posts/{{post_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"posts",
+								"{{post_id}}"
+							]
+						},
+						"description": "Mettre à jour un post existant"
+					},
+					"response": []
+				},
+				{
+					"name": "Supprimer un post",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/posts/{{post_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"posts",
+								"{{post_id}}"
+							]
+						},
+						"description": "Supprimer un post existant"
+					},
+					"response": []
+				},
+				{
+					"name": "Ajouter un like à un post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": \"{{user_id}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/posts/{{post_id}}/like",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"posts",
+								"{{post_id}}",
+								"like"
+							]
+						},
+						"description": "Ajouter un like à un post"
+					},
+					"response": []
+				},
+				{
+					"name": "Retirer un like d'un post",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": \"{{user_id}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/posts/{{post_id}}/like",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"posts",
+								"{{post_id}}",
+								"like"
+							]
+						},
+						"description": "Retirer un like d'un post"
+					},
+					"response": []
+				},
+				{
+					"name": "Posts d'un utilisateur",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/posts/users/{{user_id}}/posts",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"posts",
+								"users",
+								"{{user_id}}",
+								"posts"
+							]
+						},
+						"description": "Récupérer les posts d'un utilisateur"
+					},
+					"response": []
+				},
+				{
+					"name": "Créer un post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Nouveau post\",\n    \"content\": \"Contenu du nouveau post\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/posts/users/{{user_id}}/posts",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"posts",
+								"users",
+								"{{user_id}}",
+								"posts"
+							]
+						},
+						"description": "Créer un nouveau post pour un utilisateur"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Commentaires",
+			"item": [
+				{
+					"name": "Liste des commentaires",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/comments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"comments"
+							]
+						},
+						"description": "Récupérer la liste de tous les commentaires"
+					},
+					"response": []
+				},
+				{
+					"name": "Récupérer un commentaire",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/comments/{{comment_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"comments",
+								"{{comment_id}}"
+							]
+						},
+						"description": "Récupérer un commentaire par son ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Mettre à jour un commentaire",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\": \"Nouveau contenu du commentaire\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/comments/{{comment_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"comments",
+								"{{comment_id}}"
+							]
+						},
+						"description": "Mettre à jour un commentaire existant"
+					},
+					"response": []
+				},
+				{
+					"name": "Supprimer un commentaire",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/comments/{{comment_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"comments",
+								"{{comment_id}}"
+							]
+						},
+						"description": "Supprimer un commentaire existant"
+					},
+					"response": []
+				},
+				{
+					"name": "Ajouter un like à un commentaire",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": \"{{user_id}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/comments/{{comment_id}}/like",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"comments",
+								"{{comment_id}}",
+								"like"
+							]
+						},
+						"description": "Ajouter un like à un commentaire"
+					},
+					"response": []
+				},
+				{
+					"name": "Retirer un like d'un commentaire",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": \"{{user_id}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/comments/{{comment_id}}/like",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"comments",
+								"{{comment_id}}",
+								"like"
+							]
+						},
+						"description": "Retirer un like d'un commentaire"
+					},
+					"response": []
+				},
+				{
+					"name": "Commentaires d'un post",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/comments/posts/{{post_id}}/comments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"comments",
+								"posts",
+								"{{post_id}}",
+								"comments"
+							]
+						},
+						"description": "Récupérer les commentaires d'un post"
+					},
+					"response": []
+				},
+				{
+					"name": "Créer un commentaire",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\": \"Contenu du nouveau commentaire\",\n    \"user_id\": \"{{user_id}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/comments/posts/{{post_id}}/comments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"comments",
+								"posts",
+								"{{post_id}}",
+								"comments"
+							]
+						},
+						"description": "Créer un nouveau commentaire pour un post"
+					},
+					"response": []
+				},
+				{
+					"name": "Supprimer un commentaire d'un post",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/comments/posts/{{post_id}}/comments/{{comment_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"comments",
+								"posts",
+								"{{post_id}}",
+								"comments",
+								"{{comment_id}}"
+							]
+						},
+						"description": "Supprimer un commentaire d'un post spécifique"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
