@@ -18,9 +18,10 @@ Ce projet est une application Python conçue pour interagir avec une base de don
 ### Étapes
 
 1. Cloner le dépôt :
-
+```
    git clone https://github.com/kilbertusrobin/python_NoSQL.git
    cd python_NoSQL
+```
 
 2. Créer et activer l’environnement virtuel :
 
